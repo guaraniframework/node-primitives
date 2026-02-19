@@ -4,6 +4,7 @@ import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 import neostandard, { resolveIgnoresFromGitignore } from 'neostandard';
+import tseslint from 'typescript-eslint';
 
 import js from '@eslint/js';
 
@@ -17,7 +18,7 @@ export default defineConfig([
   }),
   {
     files: ['**/*.js', '**/*.ts'],
-    plugins: { js, prettier, 'simple-import-sort': simpleImportSort },
+    plugins: { js, prettier, 'simple-import-sort': simpleImportSort, '@typescript-eslint': tseslint.plugin },
     languageOptions: {
       globals: {
         ...globals.node,
@@ -36,7 +37,11 @@ export default defineConfig([
       'import-x/first': 'error',
       'import-x/newline-after-import': 'error',
       'import-x/no-duplicates': 'error',
+      'no-redeclare': 'off',
+      'no-unused-vars': 'off',
       'prettier/prettier': 'error',
+      '@typescript-eslint/no-redeclare': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
     },
   },
   {
