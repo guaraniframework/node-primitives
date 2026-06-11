@@ -3,6 +3,10 @@ import { jsonParse, jsonStringify } from './json';
 describe('jsonParse()', () => {
   it('should parse a safe json object as usual.', () => {
     expect(jsonParse('{"foo":"bar","baz":123}')).toStrictEqual({ foo: 'bar', baz: 123 });
+
+    expect(
+      jsonParse('{"foo":"bar","baz":123}', (_, value) => (typeof value === 'number' ? value * 2 : value)),
+    ).toStrictEqual({ foo: 'bar', baz: 246 });
   });
 
   it('should remove the forbidden keys "__proto__" and "constructor" from the parsed object.', () => {

@@ -26,3 +26,9 @@ Exports helper functions to handle enum operations.
 - `getEnumKeys()`, `getEnumKey()`, `hasEnumKey()` - Handles operations on enums' keys.
 - `getEnumValues()`, `getEnumValue()`, `hasEnumValue()`, `parseEnumValue()` - Handles operations on enums' values.
 - `getEnumEntries()` - Returns a list of [key, value] elements of an enum.
+
+## String
+
+Adds utilities for working with strings.
+
+- `isNonEmptyString()` - Checks if the provided data is a non-empty string.
