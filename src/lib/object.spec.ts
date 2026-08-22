@@ -1,3 +1,5 @@
+import { Buffer } from 'buffer';
+
 import { isPlainObject, removeNullishValues } from './object';
 
 const invalidPlainObjects: any[] = [

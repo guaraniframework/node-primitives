@@ -1,3 +1,5 @@
+import { Buffer } from 'buffer';
+
 import { isNonEmptyString } from './string';
 
 const invalidNonEmptyStrings: any[] = [
