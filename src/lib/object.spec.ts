@@ -22,9 +22,12 @@ describe('isPlainObject()', () => {
     expect(isPlainObject(data)).toBeFalse();
   });
 
-  it.each([{}, Object.create(null)])('should return true when the data is a plain javascript object.', (data) => {
-    expect(isPlainObject(data)).toBeTrue();
-  });
+  it.each([{}, Object.create(null), Object.create(Object.create(null))])(
+    'should return true when the data is a plain javascript object.',
+    (data) => {
+      expect(isPlainObject(data)).toBeTrue();
+    },
+  );
 });
 
 describe('removeNullishValues()', () => {

@@ -11,7 +11,7 @@ export function isPlainObject(data: unknown): data is object {
 
   const proto = Object.getPrototypeOf(data);
 
-  return proto === null || proto === Object.prototype;
+  return proto === null || proto === Object.prototype || Object.getPrototypeOf(proto) === null;
 }
 
 /**
