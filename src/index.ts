@@ -9,6 +9,6 @@ export {
   hasEnumValue,
   parseEnumValue,
 } from './lib/enum';
-export { jsonParse, jsonStringify } from './lib/json';
+export { jsonParse, jsonStringify, type JsonType } from './lib/json';
 export { isPlainObject, removeNullishValues } from './lib/object';
 export { isNonEmptyString } from './lib/string';

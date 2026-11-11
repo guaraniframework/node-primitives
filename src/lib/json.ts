@@ -1,7 +1,16 @@
 /**
+ * Describes the possible JSON values.
+ */
+export type JsonType = string | number | boolean | { [x: string]: JsonType } | JsonType[] | null;
+
+/**
  * JSON Reviver function that prevents prototype and constructor pollution.
  */
-function stripForbiddenProperties(key: string, value: any, reviver?: (this: any, key: string, value: any) => any): any {
+function stripForbiddenProperties(
+  key: string,
+  value: JsonType,
+  reviver?: (this: any, key: string, value: JsonType) => JsonType,
+): JsonType | undefined {
   if (key === '__proto__' || key === 'constructor') {
     return;
   }
@@ -17,7 +26,10 @@ function stripForbiddenProperties(key: string, value: any, reviver?: (this: any,
  * If a member contains nested objects, the nested objects are transformed before the parent object is.
  * @returns Parsed object from the JSON string.
  */
-export function jsonParse(text: string, reviver?: (this: any, key: string, value: any) => any): any {
+export function jsonParse<T extends JsonType = JsonType>(
+  text: string,
+  reviver?: (this: any, key: string, value: JsonType) => JsonType,
+): T {
   return JSON.parse(text, (key, value) => stripForbiddenProperties(key, value, reviver));
 }
 
@@ -29,9 +41,9 @@ export function jsonParse(text: string, reviver?: (this: any, key: string, value
  * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
  * @returns Stringified object.
  */
-export function jsonStringify(
-  value: any,
-  replacer?: (this: any, key: string, value: any) => any,
+export function jsonStringify<T extends JsonType = JsonType>(
+  value: T,
+  replacer?: (this: any, key: string, value: JsonType) => JsonType,
   space?: string | number,
 ): string;
 
@@ -43,7 +55,11 @@ export function jsonStringify(
  * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
  * @returns Stringified object.
  */
-export function jsonStringify(value: any, replacer?: (number | string)[] | null, space?: string | number): string;
+export function jsonStringify<T extends JsonType = JsonType>(
+  value: T,
+  replacer?: (number | string)[] | null,
+  space?: string | number,
+): string;
 
 /**
  * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
@@ -54,6 +70,10 @@ export function jsonStringify(value: any, replacer?: (number | string)[] | null,
  * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
  * @returns Stringified object.
  */
-export function jsonStringify(value: any, replacer?: any, space?: string | number): string {
+export function jsonStringify<T extends JsonType = JsonType>(
+  value: T,
+  replacer?: any,
+  space?: string | number,
+): string {
   return JSON.stringify(value, replacer, space);
 }
