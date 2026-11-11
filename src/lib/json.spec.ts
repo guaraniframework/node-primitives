@@ -25,6 +25,8 @@ describe('jsonParse()', () => {
 
 describe('jsonStringify()', () => {
   it('should stringify a javascript object into a json object as usual.', () => {
-    expect(jsonStringify({ foo: 'bar', baz: 123 })).toStrictEqual('{"foo":"bar","baz":123}');
+    expect(jsonStringify({ foo: 'bar', baz: 123, buf: Buffer.alloc(1) })).toStrictEqual(
+      '{"foo":"bar","baz":123,"buf":{"type":"Buffer","data":[0]}}',
+    );
   });
 });

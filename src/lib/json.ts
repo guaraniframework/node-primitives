@@ -1,7 +1,14 @@
 /**
  * Describes the possible JSON values.
  */
-export type JsonType = string | number | boolean | { [x: string]: JsonType } | JsonType[] | null;
+export type JsonType =
+  | string
+  | number
+  | boolean
+  | { [x: string]: JsonType }
+  | { toJSON(...args: any[]): JsonType }
+  | JsonType[]
+  | null;
 
 /**
  * JSON Reviver function that prevents prototype and constructor pollution.
