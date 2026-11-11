@@ -1,10 +1,31 @@
 {
   "name": "@guarani/primitives",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Enhanced primitives functionalities for NodeJS.",
   "license": "MIT",
   "homepage": "https://github.com/guaraniframework/node-primitives#readme",
-  "main": "dist/src/index.js",
+  "exports": {
+    "./enum": {
+      "types": "./dist/lib/enum.d.ts",
+      "default": "./dist/lib/enum.js"
+    },
+    "./function": {
+      "types": "./dist/lib/function.d.ts",
+      "default": "./dist/lib/function.js"
+    },
+    "./json": {
+      "types": "./dist/lib/json.d.ts",
+      "default": "./dist/lib/json.js"
+    },
+    "./object": {
+      "types": "./dist/lib/object.d.ts",
+      "default": "./dist/lib/object.js"
+    },
+    "./string": {
+      "types": "./dist/lib/string.d.ts",
+      "default": "./dist/lib/string.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -37,31 +58,32 @@
     "enum"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^20.4.1",
-    "@commitlint/config-conventional": "^20.4.1",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.2.1",
-    "commitizen": "^4.3.1",
+    "@types/node": "^26.6.6",
+    "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^10.0.0",
+    "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jest": "^29.12.2",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "globals": "^17.3.0",
+    "eslint-plugin-import-x": "^4.18.1",
+    "eslint-plugin-jest": "^29.17.0",
+    "eslint-plugin-prettier": "^5.5.7",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "globals": "^17.14.0",
     "husky": "^9.1.7",
-    "jest": "^30.2.0",
-    "jest-environment-node": "^30.2.0",
+    "jest": "^30.5.2",
+    "jest-environment-node": "^30.5.2",
     "jest-extended": "^7.0.0",
-    "jest-util": "^30.2.0",
-    "jsonc-eslint-parser": "^2.4.2",
-    "lint-staged": "^16.2.7",
-    "neostandard": "^0.12.2",
-    "prettier": "^3.8.1",
-    "ts-jest": "^29.4.6",
+    "jest-util": "^30.5.1",
+    "jsonc-eslint-parser": "^3.3.0",
+    "lint-staged": "^17.6.0",
+    "neostandard": "^0.14.1",
+    "prettier": "^3.9.10",
+    "ts-jest": "^29.4.15",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.0"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.2"
   }
 }

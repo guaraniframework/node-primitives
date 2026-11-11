@@ -1,4 +1,5 @@
 import { defineConfig } from 'eslint/config';
+import importX from 'eslint-plugin-import-x';
 import jest from 'eslint-plugin-jest';
 import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
@@ -18,10 +19,17 @@ export default defineConfig([
   }),
   {
     files: ['**/*.js', '**/*.ts'],
-    plugins: { js, prettier, 'simple-import-sort': simpleImportSort, '@typescript-eslint': tseslint.plugin },
+    plugins: {
+      js,
+      prettier,
+      'import-x': importX,
+      'simple-import-sort': simpleImportSort,
+      '@typescript-eslint': tseslint.plugin,
+    },
     languageOptions: {
       globals: {
         ...globals.node,
+        NodeJS: true,
         Properties: 'readonly',
       },
     },
